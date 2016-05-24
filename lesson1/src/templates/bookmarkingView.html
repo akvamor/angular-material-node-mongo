@@ -1,0 +1,9 @@
+<div class="container-fluid">
+    <bookmarking-form-directive bookmarks="bookamrkingCtr.bookmarks"></bookmarking-form-directive>
+    <bookmarking-table-directive bookmarks="bookamrkingCtr.bookmarks"></bookmarking-table-directive>
+    <uib-pagination template-url="angular-ui-bootstrap/template/pagination/pagination.html"
+                    total-items="bookamrkingCtr.bookmarks"
+                    ng-model="bookamrkingCtr.currentPage"
+                    ng-change="bookamrkingCtr.pageChanged()"></uib-pagination>
+              
+</div>
