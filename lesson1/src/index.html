@@ -1,22 +1,21 @@
 <!doctype html>
-<html lang="en">
+<html lang="en"  >
     <head>
         <meta charset="utf-8">
         <title>Angular Lessons</title>
-        <link rel="stylesheet" type="text/css" href="angular/angular-csp.css">
-        <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
-        <link rel="stylesheet" type="text/css" href="style/main.css">
-
-        <script src="angular/angular.js"></script>
+        <link href="angular-material/angular-material.css" rel="stylesheet" />
+        <link href="angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css"/>
+        <link href="style/main.css" rel="stylesheet"/>
+        
+        <script src="angular/angular.js" type="text/javascript" ></script>
+        <script src="angular-animate/angular-animate.js" type="text/javascript" ></script>
+        <script src="angular-aria/angular-aria.js" type="text/javascript" ></script>
+        <script src="angular-material/angular-material.js" type="text/javascript" ></script>
         <script src="angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
-
+        <script src="angular-material-data-table/dist/md-data-table.min.js"></script>
         <script src="js/all.js"></script>
 
     </head>
-    <body ng-app="epamAngular">
-        <navigation-directive></navigation-directive>
-        <div ui-view></div>
+    <body ng-app="epamAngular" layout="row"  ui-view >
     </body>
 </html>

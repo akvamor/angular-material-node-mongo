@@ -1,0 +1,25 @@
+
+    <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="50" layout="column" ng-repeat="group in groups" >
+            <md-card ng-repeat="record in group ">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{record.login}}</span>
+                        <span class="md-subhead">
+                            <md-button ng-href="{{record.html_url}}" target="_blank">
+                                <md-icon md-svg-src="link" ></md-icon>
+                                git link
+                            </md-button>
+                        </span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-sm card-media">
+                            <a href="{{record.html_url}}" target="_blank">
+                                <img ng-src="{{record.avatar_url}}" alt="{{record.login}}" class="media-object img-circle">
+                            </a>
+                        </div>
+                    </md-card-title-media>
+                </md-card-title>
+            </md-card>
+        </div>
+    </md-content>

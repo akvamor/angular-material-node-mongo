@@ -6,14 +6,32 @@
     
     'use strict';
     angular.module('epamAngular')
-        .directive('userTableDirective', function(){
+        .directive('userTable', [function(){
             return {
-                restrict: 'E',
-                transclude: true,
-                scope: {
-                    accounts: '=accounts'
+                restrict    : 'E',
+                replace     : true,
+                scope       : {
+                    accounts    : '=accounts'
                 },
-                templateUrl: 'templates/directives/userTableDirective.html'
+                templateUrl : 'templates/user.table.tmpl.html',
+                link        : function(scope, element, attr){
+                    scope.$watch('accounts.length', function(newNames, oldNames){
+                        scope.groups = [];
+                        scope.groups[0] = [];
+                        scope.groups[1] = [];
+                        var records = scope.accounts;
+                        var switcher = true;
+                        var i = 0;
+                        for (i; i < records.length; i++){
+                            if (switcher){
+                                scope.groups[0].push(records[i]);
+                            } else {
+                                scope.groups[1].push(records[i]);
+                            }
+                            switcher = !switcher;
+                        }
+                    });
+                }
             };
-        });
+        }]);
 })();

@@ -47,17 +47,10 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('copy-index-html', function() {
-    return gulp.src('src/index.html')
-    // Perform minification tasks, etc here
+gulp.task('copy-html', function(){
+    return gulp.src('src/**/*.html')
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('dist'));
-});
-
-gulp.task('copy-html-folder', function(){
-    return gulp.src('src/templates/**/*')
-        .pipe(htmlmin({collapseWhitespace: true}))
-        .pipe(gulp.dest('dist/templates'));
 });
 
 gulp.task('copy-style-folder', function(){
@@ -72,13 +65,12 @@ gulp.task('copy-style-folder', function(){
 gulp.task('watch', function() {
     gulp.watch('src/**/*.js', ['lint', 'scripts']);
     gulp.watch('src/style/scss/*.scss', ['sass']);
-    gulp.watch('src/index.html', ['copy-index-html']);
-    gulp.watch('src/templates/**/*', ['copy-html-folder']);
+    gulp.watch('src/**/*.html', ['copy-html']);
     gulp.watch('src/style/**/*', ['copy-style-folder']);
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'scripts', 'watch', 'copy-index-html', 'copy-html-folder', 'copy-style-folder']);
+gulp.task('default', ['lint', 'sass', 'scripts', 'watch', 'copy-html', 'copy-style-folder']);
 
 function runCommand(command) {
   return function (cb) {

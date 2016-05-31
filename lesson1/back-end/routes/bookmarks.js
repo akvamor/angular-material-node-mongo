@@ -13,10 +13,8 @@ router.get('/api/bookmarks', function(req, res) {
 });
 
 router.post('/api/bookmarks', function(req, res) {
-    Bookmark.create({
-        text : req.body.text,
-        done : false
-    }, function(err, bookmark) {
+    console.log(req.body);
+    Bookmark.create(req.body, function(err, bookmark) {
         if (err)
             res.send(err);
         res.json(bookmark);

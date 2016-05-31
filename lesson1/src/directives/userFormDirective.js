@@ -6,18 +6,18 @@
     
     'use strict';
     angular.module('epamAngular')
-        .directive('userFormDirective', function(){
+        .directive('userForm', function(){
         return {
-            templateUrl: 'templates/directives/userFormDirective.html',
-            restrict: 'E',
-            transclude: true,
-            scope: {
-                accounts: '=accounts'
+            templateUrl : 'templates/user.form.tmpl.html',
+            restrict    : 'E',
+            replace     : true,
+            scope       : {
+                accounts    : '=accounts'
             },
-            link: function(scope, element, attr){
+            link        : function(scope, element, attr){
+                scope.positions = ['Admin', 'Director', 'Manager'];
                 scope.account = {};
                 scope.addNewAccount = function(){
-                    console.log(scope.accounts);
                     scope.accounts[scope.accounts.length] = scope.account;
                     scope.account = {};
                 };

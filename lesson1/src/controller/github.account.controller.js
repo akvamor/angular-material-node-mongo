@@ -12,6 +12,7 @@ angular.module('epamAngular')
         var vm = this;
         vm.searchText = '';
         vm.accounts = [];
+        console.log('----');
         githubAccountsService.get().then(
             function success(response){
                 vm.accounts = response.data;

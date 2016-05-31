@@ -11,20 +11,23 @@ angular.module('epamAngular')
         vm.bookmarks = [];
         bookmarksService.get().then(
             function success(response){
+                console.log(response);
                 vm.bookmarks = response.data;
             }, 
             function error(response){
                 alert("Something goes wrong");
             }
         );
-        vm.totalItems = 64;
-        vm.currentPage = 1;
-        vm.setPage = function (pageNo) {
-            vm.currentPage = pageNo;
-        };
-
-        vm.pageChanged = function() {
-            $log.log('Page changed to: ' + vm.currentPage);
+        
+        vm.savefn = function(item){
+            console.log(item);
+            bookmarksService.post(item)
+            .then(function success(response){
+                console.log('Success added');
+            }, function error(response){
+                console.log(response);
+                vm.errorItem = item;
+            });
         };
     }]);
 })();

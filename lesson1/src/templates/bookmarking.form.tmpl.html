@@ -1,0 +1,35 @@
+<div layout="column" class="md-inline-form">
+    <md-content layout-padding>
+        <h3 class="md-headline">Bookmarks</h3>
+        <div>
+            <form name="bookmarkingForm">
+                <section layout="row" layout-align="center center">
+                    <md-button class="groupX left" ng-click="search()">
+                        <md-icon md-svg-src="search" ></md-icon>
+                        Search</md-button>
+                    <md-button class="groupX middle" ng-click="save()">
+                        <md-icon md-svg-src="save" ></md-icon>
+                        Save</md-button>
+                    <md-button class="groupX right" ng-click="clear()">
+                        <md-icon md-svg-src="clear" ></md-icon>
+                        Clear</md-button>
+                </section>
+                <div layout-gt-xs="row">
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <label>Title</label>
+                        <input ng-model="bookmark.title">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <label><md-icon md-svg-src="link" ></md-icon>
+                            Url</label>
+                        <input ng-model="bookmark.url">
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Tags</label>
+                        <input ng-model="bookmark.tags">
+                    </md-input-container>
+                </div>               
+            </form>
+        </div>
+    </md-content>
+</div>

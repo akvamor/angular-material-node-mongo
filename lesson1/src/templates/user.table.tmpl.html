@@ -1,0 +1,17 @@
+    <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="50" layout="column" ng-repeat="group in groups" >
+            <md-card ng-repeat="record in group">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{record.name}}</span>
+                        <span class="md-subhead">{{record.position}} | {{record.city}}</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-sm card-media"></div>
+                    </md-card-title-media>
+                </md-card-title>
+            </md-card>
+        </div>
+    </md-content>
+    
+    
