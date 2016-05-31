@@ -1,0 +1,25 @@
+
+.side-menu .md-button.active {
+  color: deeppink;
+}
+
+
+.side-menu .md-button{
+  border-radius: 0px;
+}
+
+md-sidenav ul{
+  padding-left: 0px;
+}
+
+md-sidenav menu-toggle a span{
+  padding-left: 14px;
+}
+
+md-sidenav menu-toggle{
+  width: 100%;
+}
+
+md-sidenav ul menu-link{
+  width: 100%;
+}

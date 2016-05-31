@@ -25,7 +25,8 @@ angular.module('epamAngular')
             vm.isOpen = isOpen;
             vm.toggleOpen = toggleOpen;
             vm.autoFocusContent = false;
-            vm.menu = menu;
+            vm.menu = menu;   
+            vm.$state = $state;         
 
             vm.status = {
                 isFirstOpen: true,
@@ -39,8 +40,7 @@ angular.module('epamAngular')
             }
             
             
-            //mdSidenav
-            
+            //mdSidenav            
             vm.toggleLeft = buildDelayedToggler('left');
             
             /**

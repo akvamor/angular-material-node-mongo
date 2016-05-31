@@ -61,14 +61,30 @@ angular.module('epamAngular')
             if(page && page.url && $location.path(page.url));
             self.currentSection = section;
             self.currentPage = page;
+          },
+          getCurrentSection: function(state){
+            var selected = null;
+            console.log(state);
+            sections.forEach(function (value, index, arr) {
+              if (value.type === 'toggle'){
+                value.pages.forEach(function(element) {
+                  if (element.state === state.name){
+                    selected = element;
+                    return;
+                  }
+                }, this);
+                if (selected != null){
+                  return;
+                }
+              }
+              else if (value.state === state.name){
+                selected = value;
+                return;
+              } 
+            });
+            return selected;
           }
         };
-        return self;
-
-        function sortByHumanName(a, b) {
-          return (a.humanName < b.humanName) ? -1 :
-            (a.humanName > b.humanName) ? 1 : 0;
-        }
-            
+        return self;            
       }]);
 })();

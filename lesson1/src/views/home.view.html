@@ -6,10 +6,11 @@
       </h3>
     </div>
   </md-toolbar>
-  <md-content role="navigation">
-    <ul class="side-menu">
+  <md-content role="navigation" >
+    <ul class="side-menu" layout="column" flex layout-fill>
       <li ng-repeat="section in vm.menu.sections" class="parent-list-item"
-          ng-class="{'parentActive' : vm.isSectionSelected(section)}">
+          ng-class="{'parentActive' : vm.isSectionSelected(section)}"
+          layout="row" flex  layout-fill>
         <h2 class="menu-heading" ng-if="section.type === 'heading'" id="heading_{{ section.name }}">
           {{section}}
         </h2>
@@ -26,7 +27,7 @@
         <md-icon md-svg-src="menu"></md-icon>
       </md-button>
       <h2>
-        <span>Toolbar with Disabled/Enabled Icon Buttons</span>
+        <span>{{vm.menu.getCurrentSection(vm.$state.current).name}}</span>
       </h2>
       <span flex></span>
     </div>
