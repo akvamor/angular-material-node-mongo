@@ -64,7 +64,6 @@ angular.module('epamAngular')
           },
           getCurrentSection: function(state){
             var selected = null;
-            console.log(state);
             sections.forEach(function (value, index, arr) {
               if (value.type === 'toggle'){
                 value.pages.forEach(function(element) {
@@ -73,7 +72,7 @@ angular.module('epamAngular')
                     return;
                   }
                 }, this);
-                if (selected != null){
+                if (selected !== null){
                   return;
                 }
               }

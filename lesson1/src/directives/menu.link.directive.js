@@ -4,7 +4,7 @@
   angular.module('epamAngular')
     .run(['$templateCache', function ($templateCache) {
       $templateCache.put('templates/menu-link.tmpl.html',
-        '<md-button flex layout-fill layout="row" ng-class="{\'{{section.icon}}\' : true}" ui-sref-active="active" \n' +
+        '<md-button layout-fill layout="row" ng-class="{\'{{section.icon}}\' : true}" ui-sref-active="active" \n' +
         '  ui-sref="{{section.state}}" ng-click="focusSection()">\n' +
         '  {{section | humanizeDoc}}\n' +
         '  <span  class="md-visually-hidden "\n' +
