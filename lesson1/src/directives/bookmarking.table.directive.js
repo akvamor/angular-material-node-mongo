@@ -6,20 +6,22 @@
     
     'use strict';
     angular.module('epamAngular')
-    .directive('bookmarkingTable', [
-        function(){
-            return {
-                restrict    : 'E',
-                transclude  : true,
-                scope       : {
-                    bookmarks: '=',
-                    getdatafn: '=',
-                    selectedBookmarks: '=',
-                    inprogress : '=',
-                    query : "="
-                },
-                templateUrl : 'templates/bookmarking.table.tmpl.html'
-            };
-        }
-    ]);
+        .directive('bookmarkingTable', [
+            function(){
+                return {
+                    restrict    : 'E',
+                    transclude  : true,
+                    scope       : {
+                        bookmarks           : '=',
+                        getdatafn           : '=',
+                        selectedBookmarks   : '=',
+                        inprogress          : '=',
+                        query               : "=",
+                        selectedBookmark    : "=",
+                        onSelect            : "="
+                    },
+                    templateUrl : 'templates/bookmarking.table.tmpl.html'
+                };
+            }
+        ]);
 })();

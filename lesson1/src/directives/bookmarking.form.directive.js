@@ -12,18 +12,9 @@ angular.module('epamAngular')
             restrict    : 'E',
             transclude  : true,
             scope       : {
-                bookmarks   : '=bookmarks',
-                savefn      : '=savefn'
-            },
-            link        : function(scope, element, attr){
-                scope.bookmark = {};
-                scope.save = function(){
-                    scope.bookmarks[scope.bookmarks.length] = scope.bookmark;
-                    console.log(scope);
-                    scope.savefn(scope.bookmark);
-                    scope.bookmark = {};
-                };
-            }
+                bookmark    : '=',
+                save      : '=savefn'
+            }           
         };
     });
 })();

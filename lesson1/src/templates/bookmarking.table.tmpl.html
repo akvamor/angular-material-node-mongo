@@ -1,27 +1,18 @@
-<!--<md-content>
-	<md-list flex>
-		<md-list-item class="md-3-line" ng-repeat="record in bookmarks" ng-click="null">
-			<div class="md-list-item-text" layout="column">
-				<h3>{{$index}} | {{record.title}} | {{record.tags}}</h3>
-				<h4>{{record.url}}</h4>
-			</div>
-		</md-list-item>
-	</md-list>
-</md-content>-->
 
 <!-- exact table from live demo -->
 <md-table-container>
-  <table md-table md-row-select multiple ng-model="selectedBookmarks" md-progress="inprogress">
+  <table md-table md-row-select multiple="true" ng-model="selectedBookmarks"  md-progress="inprogress" aria-invalid="false">
     <thead md-head md-order="query.order" md-on-reorder="getdatafn">
       <tr md-row>
         <!--<th md-column md-order-by=""><span>Key</span></th>-->
-        <th md-column md-order-by=""><span>Title</span></th>
-        <th md-column md-order-by="">Tags</th>
-        <th md-column md-order-by="">Url</th>
+        
+        <th md-column md-order-by="title"><span>Title</span></th>
+        <th md-column md-order-by="tags">Tags</th>
+        <th md-column md-order-by="url">Url</th>
       </tr>
     </thead>
     <tbody md-body>
-      <tr md-row md-select="record" md-select-id="title" md-auto-select ng-repeat="record in bookmarks">
+      <tr md-row md-select="record" md-select-id="_id" md-on-select="onSelect" md-auto-select ng-repeat="record in bookmarks.records">
         <!--<td md-cell>{{$index}}</td>-->
         <td md-cell>{{record.title}}</td>
         <td md-cell>{{record.tags}}</td>

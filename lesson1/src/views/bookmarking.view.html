@@ -1,10 +1,14 @@
 <md-card>
-    <bookmarking-form bookmarks="bookamrkingCtr.bookmarks" savefn="bookamrkingCtr.savefn"></bookmarking-form>
+    <bookmarking-form 
+        savefn="bookamrkingCtr.savefn"
+        bookmark="bookamrkingCtr.selectedBookmark"></bookmarking-form>
     <bookmarking-table 
         bookmarks="bookamrkingCtr.bookmarks" 
-        selectedBookmarks="selectedBookmarks" 
-        getdatafn="getdatafn" 
-        query="query" 
-        inprogress="inprogress">
+        selected-bookmarks="bookamrkingCtr.selectedBookmarks"
+        selected-bookmark="bookamrkingCtr.selectedBookmark" 
+        getdatafn="bookamrkingCtr.getdatafn" 
+        query="bookamrkingCtr.query" 
+        inprogress="bookamrkingCtr.inprogress"
+        on-select="bookamrkingCtr.onSelect">
     </bookmarking-table>
 </md-card >

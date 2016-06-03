@@ -6,49 +6,64 @@
 
 angular.module('epamAngular')
 
-    .controller('BookmarkingController', ['$log', 'bookmarksService', function($log, bookmarksService) {
+    .controller('BookmarkingController', ['$log', 'bookmarksService',
+     function($log, bookmarksService) {
         var vm = this;
         vm.bookmarks = [];
         vm.selectedBookmarks = [];
-        
-        bookmarksService.get().then(
-            function success(response){
-                vm.bookmarks = response.data;
-            }, 
-            function error(response){
-                alert("Something goes wrong");
-            }
-        );
-        
-        vm.savefn = function(item){
-            console.log(item);
-            bookmarksService.post(item)
-            .then(function success(response){
-                console.log('Success added');
-            }, function error(response){
-                vm.errorItem = item;
-            });
-        };
-        
+        vm.selectedBookmark = {};
         vm.query = {
             filter: '',
-            limit: '5',
+            limit: 5,
             order: 'title',
+            orderDir: 'asc',
             page: 1
         };
-        vm.inprogress = {};
-        vm.getdatafn = function(){
-            console.log("getData");
-            vm.inprogress = bookmarksService.findBy(scope.query);
+        
+        var loadData = function(){
+            vm.inprogress = bookmarksService.findBy(vm.query);
             vm.inprogress.then(
                 function success(response){
                     console.log(response);
                     vm.bookmarks = response.data;
+                    vm.query.limit = response.data.limit;
                 }, 
                 function error(response){
-                    console.log('Error');
+                    alert("Something goes wrong");
                 }
-            ); 
+            );
         };
+        loadData();        
+        
+        var onSelect = function(record){
+            vm.selectedBookmark = record;
+        };
+        vm.onSelect = onSelect;
+        
+        vm.savefn = function(){
+            var item = vm.selectedBookmark;
+            if (item._id !== undefined){
+                bookmarksService.put(item)
+                    .then(function success(response){
+                        console.log(response);
+                    },
+                    function error(response){
+                        console.log(response);
+                    });
+            } else{
+                bookmarksService.post(item)
+                    .then(function success(response){
+                        console.log('Success added');
+                    }, function error(response){
+                        vm.errorItem = item;
+                    });
+            }
+        };
+        
+  
+        vm.getdatafn = function(){
+            loadData();
+        };
+        
     }]);
 })();

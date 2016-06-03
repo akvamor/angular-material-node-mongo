@@ -24,6 +24,16 @@ angular.module('epamAngular')
                 data    : data
             });  
         };
+        
+        var put = function(data){
+            console.log(data);
+            return $http({
+                method  : 'PUT',
+                url     : '/api/bookmarks/' + data._id,
+                data    : data 
+            });
+        };
+        
         var deleteEl = function(id){
             return $http({
                 method  : 'DELETE',
@@ -43,6 +53,7 @@ angular.module('epamAngular')
         return {
             get     : get,
             post    : post,
+            put     : put,
             delete  : deleteEl,
             findBy  : findBy
         };
